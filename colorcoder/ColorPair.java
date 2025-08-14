@@ -1,24 +1,27 @@
 package colorcoder;
 
 public class ColorPair {
-    private final MajorColor majorColor;
-    private final MinorColor minorColor;
+    private MajorColor majorColor;
+    private MinorColor minorColor;
 
-    public ColorPair(MajorColor majorColor, MinorColor minorColor) {
-        this.majorColor = majorColor;
-        this.minorColor = minorColor;
+    public static final String[] MajorColorNames = { "White", "Red", "Black", "Yellow", "Violet" };
+    public static final String[] MinorColorNames = { "Blue", "Orange", "Green", "Brown", "Slate" };
+
+    public ColorPair(MajorColor major, MinorColor minor) {
+        this.majorColor = major;
+        this.minorColor = minor;
     }
 
-    public MajorColor getMajorColor() {
+    public MajorColor getMajor() {
         return majorColor;
     }
 
-    public MinorColor getMinorColor() {
+    public MinorColor getMinor() {
         return minorColor;
     }
 
     @Override
     public String toString() {
-        return majorColor + " - " + minorColor;
+        return MajorColorNames[majorColor.getIndex()] + " " + MinorColorNames[minorColor.getIndex()];
     }
 }
